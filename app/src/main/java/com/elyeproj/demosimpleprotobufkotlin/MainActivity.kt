@@ -8,11 +8,16 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okreplay.OkReplayInterceptor
 import tutorial.Dataformat.Person
 
 class MainActivity : AppCompatActivity() {
 
-    private val okHttpClient = OkHttpClient()
+
+    companion object {
+        val okReplayInterceptor = OkReplayInterceptor()
+        private val okHttpClient = OkHttpClient.Builder().addInterceptor(okReplayInterceptor).build()
+    }
 
     private val observable = Observable.just("http://elyeproject.x10host.com/experiment/protobuf")
             .map{

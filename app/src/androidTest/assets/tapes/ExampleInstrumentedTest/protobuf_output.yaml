@@ -1,0 +1,21 @@
+!tape
+name: protobuf output
+interactions:
+- recorded: 2018-08-15T01:46:04.938Z
+  request:
+    method: GET
+    uri: http://elyeproject.x10host.com/experiment/protobuf
+  response:
+    status: 200
+    headers:
+      Accept-Ranges: bytes
+      Age: '0'
+      Connection: keep-alive
+      Content-Type: text/html
+      Date: Wed, 15 Aug 2018 01:46:04 GMT
+      Transfer-Encoding: chunked
+      Vary: Accept-Encoding
+      X-Cache: MISS
+      X-Varnish: '165118150'
+    body: !!binary |-
+      CgdNeSBOYW1lEAEaD215bmFtZUBtYWlsLmNvbSIJMTIzNDU2Nzg5
