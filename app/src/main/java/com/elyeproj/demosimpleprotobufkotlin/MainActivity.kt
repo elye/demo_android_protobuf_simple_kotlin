@@ -31,9 +31,15 @@ class MainActivity : AppCompatActivity() {
                         return@map Person.parseFrom(responseBody.byteStream())
                     }
                 }
-                return@map null
+                return@map null }
+            .doOnSubscribe { getFetcherListener()?.beginFetching() }
+            .doFinally { getFetcherListener()?.doneFetching() }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
 
-            }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+    private fun getFetcherListener(): FetcherListener? {
+        return (application as MainApp).fetcherListener
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
